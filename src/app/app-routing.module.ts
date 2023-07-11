@@ -8,24 +8,29 @@ import { EditarPensamentoComponent } from './componentes/pensamentos/editar-pens
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'listarPensamento',
     pathMatch: 'full',
+    redirectTo: 'pensamentos/listar',
   },
   {
-    path: 'criarPensamento',
-    component: CriarPensamentoComponent,
-  },
-  {
-    path: 'listarPensamento',
-    component: ListarPensamentoComponent,
-  },
-  {
-    path: 'pensamentos/excluirPensamento/:id',
-    component: ExcluirPensamentoComponent,
-  },
-  {
-    path: 'pensamentos/editarPensamento/:id',
-    component: EditarPensamentoComponent,
+    path: 'pensamentos',
+    children: [
+      {
+        path: 'criar',
+        component: CriarPensamentoComponent,
+      },
+      {
+        path: 'listar',
+        component: ListarPensamentoComponent,
+      },
+      {
+        path: 'excluir/:id',
+        component: ExcluirPensamentoComponent,
+      },
+      {
+        path: 'editar/:id',
+        component: EditarPensamentoComponent,
+      },
+    ],
   },
 ];
 
