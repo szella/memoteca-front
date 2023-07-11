@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Pensamento } from '../pensamento';
 
 @Component({
   selector: 'app-listar-pensamento',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./listar-pensamento.component.scss'],
 })
 export class ListarPensamentoComponent {
-  listaPensamentos = [];
+  listaPensamentos: Pensamento[] = [];
 }

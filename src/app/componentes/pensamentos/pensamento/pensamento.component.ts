@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Pensamento } from '../pensamento';
 
 @Component({
   selector: 'app-pensamento',
@@ -6,9 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./pensamento.component.scss'],
 })
 export class PensamentoComponent {
-  pensamento = {
-    conteudo: 'I love Angular',
-    autoria: 'Ser',
-    modelo: 'modelo3',
+  @Input() pensamento: Pensamento = {
+    id: 0,
+    conteudo: '',
+    autoria: '',
+    modelo: '',
   };
+
+  larguraPensamento(): string {
+    return this.pensamento.conteudo.length > 256
+      ? 'pensamento-g'
+      : 'pensamento-p';
+  }
 }
